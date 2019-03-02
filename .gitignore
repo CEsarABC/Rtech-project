@@ -1,0 +1,6 @@
+*.sqlite3
+__pycache__
+/myEnv
+env.py
+.~c9*
+/Python-3.6.4
