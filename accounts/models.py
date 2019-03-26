@@ -9,7 +9,7 @@ class UserProfileInfo(models.Model):
     user = models.OneToOneField(User)
 
     #additionals
-    portfolio_site = models.URLField(blank=True)
+    portfolio_site = models.CharField(max_length=100)
 
     profile_pic = models.ImageField(upload_to='profile_pics',blank=True)
 
