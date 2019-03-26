@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from accounts.views import index
+from accounts.views import index,testpage,about,contact,services
+from accounts import urls as urls_accounts
+from posts import urls as urls_posts
 
 urlpatterns = [
     url(r'^$', index, name='index'),
+    url(r'^test/$', testpage, name='testpage'),
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include(urls_accounts)),
+    url(r'^about/$', about, name='about'),
+    url(r'^contact/$', contact, name='contact'),
+    url(r'^services/$', services, name='services'),
+    url(r'^posts/', include(urls_posts)),
 ]
