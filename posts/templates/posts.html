@@ -1,19 +1,33 @@
-
 {% extends 'base.html' %}
-
-{% load bootstrap_tags %}
-
-{% block page_title %}New Project{% endblock %}
-
-{% block page_heading %}New Project{% endblock %}
-
 {% block content %}
-<p>If you already have an account you can <a href="{% url 'login' %}">sign in</a></p>
-<br>
-
-<form method='POST'>
-    {% csrf_token %}
-    {{newProject_form | as_bootstrap}}
-    <button class="btn btn-primary" type="submit">submit</button>
-</form>
+<a href="{% url 'project_create' %}">New Project</a>
+    {% for project in projects %}
+    
+        <div class="row">
+            <div class="col-md-2 col-sm-3 text-center">
+                <!--<a class="story-img" href="#">-->
+                <!--    <img src="/media/img/profile.jpg" class="img-circle">-->
+                <!--</a>-->
+                <p><span class="boldtext">Author:</span> {{ project.author }}</p>
+            </div>
+            <div class="col-md-10 col-sm-9">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <p><span class="boldtext">Title: </span>{{ project.title }}</p>
+                        <p><span class="boldtext">Language: </span>{{ project.language }}</p>
+                        <p><span class="boldtext">Description: </span>{{ project.description }}</p>
+                        <p><span class="boldtext">Published on: </span> {{ project.published_date }} </p>
+                        <p><span class="boldtext">Views: </span> {{project.views}}</p>
+                        <p><span class="boldtext">Tag: </span> {{ project.repository }}</p>
+                    </div>
+                </div>
+                {% if request.user == project.author %}
+                <a class="btn btn-primary" href="{% url 'edit_project' project.id %}" role="button">Edit</a>
+                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-primary">Add Services</button>
+                {% endif %}
+            </div>
+            <hr>
+        </div>
+    {% endfor %}
 {% endblock %}
