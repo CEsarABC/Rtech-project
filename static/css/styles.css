@@ -1,0 +1,12 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #101010, #202020);
+    color: #A0A0A0;
+}
+
+hr {
+    border:solid 1px grey;
+}

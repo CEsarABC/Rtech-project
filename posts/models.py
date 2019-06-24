@@ -17,3 +17,12 @@ class project(models.Model):
     
     def __str__(self):
         return self.title
+        
+class servicesUpdate(models.Model):
+    
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    project_id = models.ForeignKey(project, default=None)
+    
+    def __str__(self):
+        return self.title
