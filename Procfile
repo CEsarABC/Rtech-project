@@ -1,1 +1,1 @@
-web: gunicorn Rtech.wsgi:application
+web: gunicorn RTech.wsgi:application
