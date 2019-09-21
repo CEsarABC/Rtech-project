@@ -26,7 +26,7 @@ SECRET_KEY = 'iz+gy1t0^4vp$)go!gxz#+m2*y3n66@y3(do$2@(t!+as986)w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-milestone-cesar-cesarabcwork.c9users.io',]
+ALLOWED_HOSTS = ["rtech-sample.herokuapp.com"]
 
 
 # Application definition
@@ -130,7 +130,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     )
-    
+
 MEDIAFILES_LOCATION = 'media'
 # MEDIAFILES_STORAGE = 'custom_storages.MediaStorage'
 
