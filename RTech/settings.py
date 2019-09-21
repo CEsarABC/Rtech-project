@@ -78,12 +78,13 @@ WSGI_APPLICATION = 'RTech.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+DATABASES = {'default': dj_database_url.parse("postgres://mrcjmxufsmzfrz:328184f778a454eb376e4784215bc4a31d49765898526f830ee44e136b634746@ec2-54-246-92-116.eu-west-1.compute.amazonaws.com:5432/d2su1qgdjv36uh")}
 
 
 # Password validation
