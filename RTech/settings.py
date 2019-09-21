@@ -26,7 +26,7 @@ SECRET_KEY = 'iz+gy1t0^4vp$)go!gxz#+m2*y3n66@y3(do$2@(t!+as986)w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["rtech-sample.herokuapp.com"]
+ALLOWED_HOSTS = ["rtech-sample.herokuapp.com","127.0.0.1"]
 
 
 # Application definition
