@@ -1,10 +1,12 @@
 ## Cesar's Milestone Project
+## Working in Atom
+## Virtual environment Env : Env\Scripts\activate
 
 * Html
 * CSS
 * JavaScript
 * Python
-* Django 
+* Django
 * Sql databases
 * Ecommerce
 * Travis
