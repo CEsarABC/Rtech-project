@@ -27,6 +27,7 @@ SECRET_KEY = 'iz+gy1t0^4vp$)go!gxz#+m2*y3n66@y3(do$2@(t!+as986)w'
 DEBUG = True
 
 ALLOWED_HOSTS = ["rtech-sample.herokuapp.com","127.0.0.1"]
+#ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -84,8 +85,15 @@ WSGI_APPLICATION = 'RTech.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-DATABASES = {'default': dj_database_url.parse("postgres://mrcjmxufsmzfrz:328184f778a454eb376e4784215bc4a31d49765898526f830ee44e136b634746@ec2-54-246-92-116.eu-west-1.compute.amazonaws.com:5432/d2su1qgdjv36uh")}
-
+'''this data base will work for heroku, using the dj_database_url module'''
+#DATABASES = {'default': dj_database_url.parse("postgres://mrcjmxufsmzfrz:328184f778a454eb376e4784215bc4a31d49765898526f830ee44e136b634746@ec2-54-246-92-116.eu-west-1.compute.amazonaws.com:5432/d2su1qgdjv36uh")}
+'''this data base works in local machine, default Django'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
