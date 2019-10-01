@@ -55,8 +55,6 @@ def edit_project(request, pk=None):
     return render(request, 'posts_form.html', {'form': form})
 
 def delete_post(request, pk):
-    post = get_object_or_404(project, pk=pk)
-    if request.method=='POST':
-        post.delete()
-        return redirect(project_page)
-    return render(request,"posts.html")
+    post = get_object_or_404(project, pk=pk) if pk else None
+    post.delete()
+    return redirect(project_page)
