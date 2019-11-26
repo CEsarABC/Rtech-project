@@ -101,28 +101,3 @@ def user_profile(request):
     userMail = User.objects.get(email=request.user.email)
     myProjects = project.objects.all().order_by('published_date')
     return render(request, 'profile.html', {"profile": userMail, "myProjects": myProjects})
-
-def edit_project(request, pk=None):
-    """create a view that allows us to create
-    or edit a post depending if the post ID
-    is null or not
-    """
-
-    post = get_object_or_404(project, pk=pk) if pk else None
-    if request.method=='POST':
-        form = createProject(request.POST, request.FILES, instance=post)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.author = request.user
-            instance.save()
-            return redirect(project_page)
-    else:
-        form = createProject(instance=post)
-    return render(request, 'posts_form.html', {'form': form})
-
-def delete_post(request, pk):
-    post = get_object_or_404(project, pk=pk)
-    if request.method=='POST':
-        post.delete()
-        return redirect(project_page)
-    return render(request,"posts.html")
