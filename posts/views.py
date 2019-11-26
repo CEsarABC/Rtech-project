@@ -3,9 +3,11 @@ from django.contrib import auth, messages
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from posts.models import project
-from posts.forms import createProject
-
+from posts.models import project,Services
+from posts.forms import createProject, CreateService
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import (View,ListView,DetailView,TemplateView,CreateView,UpdateView,DeleteView)
+from . import models
 
 # Create your views here.
 def project_page(request):
@@ -58,3 +60,7 @@ def delete_post(request, pk):
     post = get_object_or_404(project, pk=pk) if pk else None
     post.delete()
     return redirect(project_page)
+
+class ServiceCreateView(CreateView):
+    fields = ('title','description','price')
+    model = models.Services
