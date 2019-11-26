@@ -12,36 +12,4 @@
     <h2>{{ profile.username }}</h2>
 </div>
 
-
-{% for project in myProjects %}
-    {% if request.user == project.author %}
-    
-        <div class="row">
-            <div class="col-md-2 col-sm-3 text-center">
-                <!--<a class="story-img" href="#">-->
-                <!--    <img src="/media/img/profile.jpg" class="img-circle">-->
-                <!--</a>-->
-                <p><span class="boldtext">Author:</span> {{ project.author }}</p>
-            </div>
-            <div class="col-md-10 col-sm-9">
-                <div class="row">
-                    <div class="col-xs-9">
-                        <p><span class="boldtext">Title: </span>{{ project.title }}</p>
-                        <p><span class="boldtext">Language: </span>{{ project.language }}</p>
-                        <p><span class="boldtext">Description: </span>{{ project.description }}</p>
-                        <p><span class="boldtext">Published on: </span> {{ project.published_date }} </p>
-                        <p><span class="boldtext">Views: </span> {{project.views}}</p>
-                        <p><span class="boldtext">Tag: </span> {{ project.repository }}</p>
-                    </div>
-                </div>
-                
-                <a class="btn btn-primary" href="{% url 'edit_project' project.id %}" role="button">Edit</a>
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-primary">Add Services</button>
-                
-            </div>
-            <hr>
-        </div>
-        {% endif %}
-    {% endfor %}
 {% endblock %}
